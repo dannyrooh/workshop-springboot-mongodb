@@ -33,4 +33,16 @@ public class UserService {
         this.findById(id);
         repo.deleteById(id);
     }
+
+    public User update(User user) {
+        User newObj = this.findById(user.getId());
+        
+        newObj.setName(user.getName());
+        newObj.setEmail(user.getEmail());
+
+        repo.save(newObj);
+
+        return newObj;
+
+    }
 }
